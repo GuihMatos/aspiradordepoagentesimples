@@ -10,26 +10,25 @@ class IAspirador(Ambiente):
     self.localasp = random.choice(["A","B"])
     print(40*"*")
     print("O ambiente está:", Ambiente.condlocad)
-    global Asp
-    Asp = turtle.Turtle()
-    Asp.penup()
-    Asp.setpos(0, 0)
-    Asp.begin_fill()
-    Asp.shape("circle")
-    Asp.color("blue")
-    Asp.end_fill()
-    Asp.penup()
+    self.Asp = turtle.Turtle()
+    self.Asp.penup()
+    self.Asp.setpos(0, 0)
+    self.Asp.begin_fill()
+    self.Asp.shape("circle")
+    self.Asp.color("blue")
+    self.Asp.end_fill()
+    self.Asp.penup()
 
   def verifica_estado_aspirador(self, Ambiente):#sensor
     if self.localasp == "A":
       result1 = "O aspirador é colocado aleatoriamente no local A\n"
-      Asp.speed(100)
-      Asp.setpos(-120, 0)
+      self.Asp.speed(100)
+      self.Asp.setpos(-120, 0)
       return print(result1)
     elif self.localasp == "B":
       result2 = "O aspirador é colocado aleatoriamente no local B\n"
-      Asp.speed(100)
-      Asp.setpos(120, 0)
+      self.Asp.speed(100)
+      self.Asp.setpos(120, 0)
       return print(result2)
 
   def verifica_estado_ambiente(self, Ambiente):#sensor
@@ -104,12 +103,12 @@ class IAspirador(Ambiente):
       print("\nMove-se para o lado B...")
       IAspirador.localasp = "B"
       sleep(2.25)
-      Asp.forward(240)
+      self.Asp.forward(240)
     else:
       print("\nMove-se para o lado A...")
       IAspirador.localasp = "A"
       sleep(2.25)
-      Asp.back(240)
+      self.Asp.back(240)
 
 #LIMPANDO:
 OAmbiente = Ambiente()
